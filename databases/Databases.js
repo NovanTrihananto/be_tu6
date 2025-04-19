@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 // Nyambungin db ke BE
 const db = new Sequelize("notes", "root", "", {
- host: "34.133.242.141",
+ host: "35.225.111.238",
  dialect: "mysql",
 });
 export default db;
