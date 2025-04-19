@@ -15,14 +15,16 @@ async function startServer() {
         await db.authenticate();
         console.log("✅ Database connected");
 
-        // Sync database (pilih opsi sesuai kebutuhan)
-        await db.sync({ alter: true }); // Bisa diganti force: true untuk dev
+        // Sync database
+        await db.sync({ alter: true }); // Ubah ke force: true jika ingin reset tabel
 
-        const PORT = process.env.PORT || 5000;
-        app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
+        const PORT = process.env.PORT || 3000; // default ke 3000
+        app.listen(PORT, () => {
+            console.log(`🚀 Server running on port ${PORT}`);
+        });
     } catch (error) {
         console.error("❌ Database connection failed:", error.message);
-        console.error(error.stack); // Untuk debugging lebih detail
+        console.error(error.stack);
     }
 }
 
